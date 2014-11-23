@@ -66,28 +66,12 @@ public class AcronymValidator {
 		}
 		
 		//We never found anything in this word or we ran out of words
-		if(letterIndex == 0 || wordIndex == productName.size() - 1){
+		if(letterIndex == 0){
 			
 			return false;
 		}
 		
 		//Move on to the next word
-		String nextWord = productName.get(wordIndex + 1).toLowerCase();
-		
-		index = nextWord.indexOf(currentChar,0);
-		
-		while(index >= 0){
-			
-			boolean success = Validate(acronym,productName,acronymIndex + 1,wordIndex + 1,index + 1);
-			
-			if(success){
-				
-				return true;
-			}
-			
-			index = nextWord.indexOf(currentChar,index + 1);
-		}
-		
-		return false;
+		return Validate(acronym,productName,acronymIndex,wordIndex + 1,0);
 	}
 }

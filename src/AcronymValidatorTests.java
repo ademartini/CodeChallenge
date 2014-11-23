@@ -21,10 +21,15 @@ public class AcronymValidatorTests {
 		testAcronym("GZT","GISi Zombie Tracker 3000",false);
 		testAcronym("GZTK","GISi Zombie Tracker 3000",false);
 		testAcronym("BLAH","GISi Zombie Tracker 3000",false);
+		testAcronym("GT3","GISi Zombie Tracker 3000",false);
 		
 		testAcronym("B","B",true);
 		testAcronym("B","BC",true);
 		testAcronym("","B",false);
+		
+		testAcronym("AB","AB B",true);
+		testAcronym("ABC","AB BC",true);
+		testAcronym("AB","ABB B",true);
 	}
 
 	private void testAcronym(String acronym, String productName, boolean assertion){
